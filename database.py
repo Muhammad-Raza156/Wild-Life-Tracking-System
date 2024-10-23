@@ -9,12 +9,13 @@ load_dotenv()
 
 user=os.getenv("db_user")
 password=os.getenv("db_password")
-database=os.getenv("db_name")
+dbname=os.getenv("db_name")
 port=os.getenv("db_port")
+host=os.getenv("db_host")
 
 
 
-Database_URL= f"postgresql://{user}:{password}@localhost:{port}/{database}"
+Database_URL= f"postgresql://{user}:{password}@{host}:{port}/{dbname}"
 database= Database(Database_URL)
 
 engine=create_engine(Database_URL)
